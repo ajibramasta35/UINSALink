@@ -1,113 +1,102 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+const datapekerjaan = [
+  {
+    pekerjaan: 'Visual Designer',
+    lokasi: 'Semarang, Jawa Timur ',
+    jenis_pekerjaan: 'Full-time',
+    perusahaan: 'PT Pilih sejati',
+    logoperusahaan:'https://i.pinimg.com/originals/13/5d/8f/135d8f906db1c97c28aa1bb92d85326c.gif',
+    mode: 'On-Site',
+    deskripsi:
+      'PT Pilih Sejati adalah perusahaan teknologi informasi yang berfokus pada pengembangan solusi inovatif untuk memecahkan masalah kompleks dalam industri. Kami mencari seorang Software Engineer yang berbakat dan bersemangat untuk bergabung dengan tim kami dalam membangun dan menyempurnakan produk-produk berbasis teknologi yang mempengaruhi kehidupan jutaan orang.',
+  },
+  {
+    pekerjaan: 'Digital Marketing Specialist',
+    lokasi: 'Jakarta Selatan, DKI Jakarta',
+    jenis_pekerjaan: 'Full-time',
+    perusahaan: 'PT Pemasaran Digital Makmur',
+    logoperusahaan: 'https://i.pinimg.com/736x/d3/1c/a9/d31ca9ec8b3d779cad9ff901322ad240.jpg',
+    mode: 'Hybrid (On-Site and Remote)',
+    deskripsi:
+      'PT Pemasaran Digital Makmur adalah perusahaan di bidang pemasaran digital yang menghadirkan strategi dan kampanye inovatif untuk membantu klien mencapai tujuan pemasaran mereka. Kami sedang mencari Digital Marketing Specialist yang kreatif dan berpengetahuan luas tentang tren pemasaran digital untuk bergabung dengan tim kami.',
+  },
+  {
+    pekerjaan: 'Front-end Developer',
+    lokasi: 'Bandung, Jawa Barat',
+    jenis_pekerjaan: 'Contract',
+    perusahaan: 'PT Teknologi Maju Bersama',
+    logoperusahaan: 'https://i.pinimg.com/564x/d6/97/d4/d697d48100b6371ce8bf7ec8f5a6f795.jpg',
+    mode: 'Remote',
+    deskripsi:
+      'PT Teknologi Maju Bersama adalah perusahaan teknologi yang mengembangkan aplikasi berbasis web dan mobile untuk klien di seluruh dunia. Kami membutuhkan Front-end Developer yang handal dalam menciptakan antarmuka pengguna yang menarik dan responsif menggunakan teknologi terkini.',
+  },
+  {
+    pekerjaan: 'Data Analyst',
+    lokasi: 'Surabaya, Jawa Timur',
+    jenis_pekerjaan: 'Part-time',
+    perusahaan: 'PT Data Cemerlang Indonesia',
+    logoperusahaan: 'https://i.pinimg.com/564x/c2/13/eb/c213eb8ece9a6905f16c22ed619a22a6.jpg',
+    mode: 'On-Site',
+    deskripsi:
+      'PT Data Cemerlang Indonesia adalah perusahaan analitik data yang menyediakan layanan konsultasi dan solusi berbasis data bagi klien dari berbagai industri. Kami sedang mencari seorang Data Analyst yang berdedikasi untuk menganalisis data, mengidentifikasi tren, dan memberikan wawasan berharga bagi keputusan bisnis perusahaan.',
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className=" container mx-auto pt-36">
+      <div className="md:flex md:relative">
+        <div className="mx-2 mb-8 text-lg px-10 py-10 bg-white rounded-lg max-h-[30em] md:w-[20rem] lg:w-[19rem] xl:w-[24rem] 2xl:w-[28rem] md:mx-3 lg:fixed ">
+          <div className="text-sm md:text-md">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+            porro cumque commodi temporibus. Esse odio ipsum quo eius, quae
+            illum porro voluptates ducimus eaque velit? Consequuntur officiis
+            consectetur laboriosam magnam.
+          </div>
+        </div>
+        <div className="pekerjaan mx-2 mb-2 md:mx-3 md:w-2/3 md:ml-auto">
+          <div className="searchbar mb-4 flex">
+            <input type="text" placeholder='cari pekerjaan di uinsalink' className='p-4 rounded-md w-3/4 mr-4 shadow-slate-500' />
+            <button type="button" className='bg-green-500 w-1/4 text-white text-sm rounded-md md:text-lg'>Cari</button>
+
+          </div>
+          {datapekerjaan.map((item, index) => {
+            return (
+              <Link href="#">
+              <div className="mb-6 text-lg px-10 py-10 transition-all ease-in-out bg-white rounded-lg hover:shadow-lg duration-500 cursor-pointer ">
+                <div className="keterangan-kerja items-center min-h-[6em] md:flex">
+                  <Image
+                    src={item.logoperusahaan}
+                    width={50}
+                    height={50}
+                    alt="logo perusahaan"
+                    className="rounded-full md:w-20"
+                  />
+                  <div className="ketja md:ml-4">
+                    <div className=" text-sm py-3 text-green-500 font-semibold md:text-xl lg:text-2xl md:py-1">
+                      {item.pekerjaan}
+                    </div>
+                    <div className=" text-xs flex">
+                      <div className='mr-3 font-medium'>{item.jenis_pekerjaan}</div>{item.lokasi}
+                    </div>
+                    <div className=" text-xs text-gray-500 opacity-80 mt-1">
+                      {item.perusahaan} ({item.mode})
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 text-xs line-clamp-3 text-gray-500 md:text-md lg:text-lg">
+                  {item.deskripsi} 
+                </div>
+              </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </div>
+  );
 }
